@@ -1,0 +1,15 @@
+{
+	"name": "xmlentities",
+	"version": "0.1.0",
+	"description": "XML and HTML character entities encoder/decoder",
+	"main": "index.js",
+	"author": "Sergej Pracht <sepracht@gmail.com> (http://github.com)",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^2.1.5"
+	},
+	"scripts": {
+		"build": "tsc",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
+}
