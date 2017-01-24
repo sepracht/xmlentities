@@ -1,15 +1,20 @@
 {
 	"name": "xmlentities",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "XML and HTML character entities encoder/decoder",
 	"main": "index.js",
-	"author": "Sergej Pracht <sepracht@gmail.com> (http://github.com)",
+	"author": "Sergej Pracht <sepracht@gmail.com>",
 	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sepracht/xmlentities.git"
+	},
 	"devDependencies": {
 		"typescript": "^2.1.5"
 	},
 	"scripts": {
 		"build": "tsc",
 		"test": "echo \"Error: no test specified\" && exit 1"
-	}
+	},
+	"typings": "./index.d.ts"
 }
