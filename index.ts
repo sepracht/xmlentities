@@ -8,9 +8,10 @@ const predefined = {
 }
 
 const entityPattern: RegExp = /&(#\d{2,4}|#x[A-Fa-f\d]{2,4}|[A-Za-z\d]{2,8});/g;
+//                              |   dec  |     hex         |    named      |
 
 export function encode(source: string, format?: any): string {
-	throw new Error('not implemented')
+	throw new Error('not implemented yet')
 }
 
 export function decode(source: string): string {
@@ -25,7 +26,7 @@ function entityReplFunction(entity: string, ...args: any[]): string {
 			? parseInt(code.substr(2), 16) // hexadecimal form
 			: parseInt(code.substr(1)))    // decimal form
 	}
-	// else it should be named entity
+	// else it should be a named entity
 	return predefined[code] || getDict()[code] || entity
 }
 
@@ -39,7 +40,7 @@ function entityReplFunction(entity: string, ...args: any[]): string {
  */
 function getDict() {
 	return named || (named = {
-			// Benannte Zeichen für die Kodierung ISO 8859-1
+			// [de] Benannte Zeichen für die Kodierung ISO 8859-1
 			'nbsp': '\u00A0', // no-break space (= non-breaking space)
 			'iexcl': '\u00A1', // ¡ inverted exclamation mark
 			'cent': '\u00A2', // ¢ cent sign
@@ -136,17 +137,17 @@ function getDict() {
 			'yacute': '\u00FD', // ý Latin small letter y with acute
 			'thorn': '\u00FE', // þ Latin small letter thorn
 			'yuml': '\u00FF', // ÿ Latin small letter y with diaeresis
-			// Benannte Zeichen lateinisch erweitert
+			// [de] Benannte Zeichen lateinisch erweitert
 			'OElig': '\u0152', // Œ Latin capital ligature oe
 			'oelig': '\u0153', // œ Latin small ligature oe
 			'Scaron': '\u0160', // Š Latin capital letter s with caron
 			'scaron': '\u0161', // š Latin small letter s with caron
 			'Yuml': '\u0178', // Ÿ Latin capital letter y with diaeresis
 			'fnof': '\u0192', // ƒ Latin small letter f with hook (= function = florin)
-			// Benannte Zeichen für diakritische Zeichen
+			// [de] Benannte Zeichen für diakritische Zeichen
 			'circ': '\u02C6', // ˆ modifier letter circumflex accent
 			'tilde': '\u02DC', // ˜ small tilde
-			// Benannte Zeichen für griechische Buchstaben
+			// [de] Benannte Zeichen für griechische Buchstaben
 			'Alpha': '\u0391', // Α Greek capital letter Alpha
 			'Beta': '\u0392', // Β Greek capital letter Beta
 			'Gamma': '\u0393', // Γ Greek capital letter Gamma
@@ -199,7 +200,7 @@ function getDict() {
 			'thetasym': '\u03D1', // ϑ Greek theta symbol
 			'upsih': '\u03D2', // ϒ Greek Upsilon with hook symbol
 			'piv': '\u03D6', // ϖ Greek pi symbol
-			// Benannte Zeichen für Interpunktion
+			// [de] Benannte Zeichen für Interpunktion
 			'ensp': '\u2002', //   en space
 			'emsp': '\u2003', //   em space
 			'thinsp': '\u2009', //   thin space
@@ -217,7 +218,7 @@ function getDict() {
 			'bdquo': '\u201E', // „ double low-9 quotation mark
 			'dagger': '\u2020', // † dagger, obelisk
 			'Dagger': '\u2021', // ‡ double dagger, double obelisk
-			// Benannte Zeichen für diverse Symbole
+			// [de] Benannte Zeichen für diverse Symbole
 			'bull': '\u2022', // • bullet (= black small circle)
 			'hellip': '\u2026', // … horizontal ellipsis (= three dot leader)
 			'permil': '\u2030', // ‰ per mille sign
@@ -233,7 +234,7 @@ function getDict() {
 			'real': '\u211C', // ℜ black-letter capital R (= real part symbol)
 			'trade': '\u2122', // ™ trademark sign
 			'alefsym': '\u2135', // ℵ alef symbol (= first transfinite cardinal)
-			// Benannte Zeichen für Pfeil-Symbole
+			// [de] Benannte Zeichen für Pfeil-Symbole
 			'larr': '\u2190', // ← leftwards arrow
 			'uarr': '\u2191', // ↑ upwards arrow
 			'rarr': '\u2192', // → rightwards arrow
@@ -245,7 +246,7 @@ function getDict() {
 			'rArr': '\u21D2', // ⇒ rightwards double arrow
 			'dArr': '\u21D3', // ⇓ downwards double arrow
 			'hArr': '\u21D4', // ⇔ left right double arrow
-			// Benannte Zeichen für mathematische Symbole
+			// [de] Benannte Zeichen für mathematische Symbole
 			'forall': '\u2200', // ∀ for all
 			'part': '\u2202', // ∂ partial differential
 			'exist': '\u2203', // ∃ there exists
@@ -284,7 +285,7 @@ function getDict() {
 			'otimes': '\u2297', // ⊗ circled times (= vector product)
 			'perp': '\u22A5', // ⊥ up tack (= orthogonal to = perpendicular)
 			'sdot': '\u22C5', // ⋅ dot operator
-			// Benannte Zeichen für technische Symbole
+			// [de] Benannte Zeichen für technische Symbole
 			'lceil': '\u2308', // ⌈ left ceiling (= APL upstile)
 			'rceil': '\u2309', // ⌉ right ceiling
 			'lfloor': '\u230A', // ⌊ left floor (= APL downstile)
@@ -292,7 +293,7 @@ function getDict() {
 			'lang': '\u27E8', // 〈 mathematical left angle bracket (= bra)
 			'rang': '\u27E9', // 〉 mathematical right angle bracket (= ket)
 			'loz': '\u25CA', // ◊ lozenge
-			// Benannte Zeichen für diverse Symbole
+			// [de] Benannte Zeichen für diverse Symbole
 			'spades': '\u2660', // ♠ black spade suit
 			'clubs': '\u2663', // ♣ black club suit (= shamrock)
 			'hearts': '\u2665', // ♥ black heart suit (= valentine)
